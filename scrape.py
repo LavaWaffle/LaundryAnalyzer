@@ -147,7 +147,9 @@ def main():
     try:
         for url in urls:
             scrape_laundry_status(url, driver)
-            driver.refresh()
+            driver.close()
+            driver.quit()
+            driver = setup_driver()
             sleep(2)
             print("---")  # Separator between locations
     finally:
