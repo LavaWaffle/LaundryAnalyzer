@@ -100,7 +100,7 @@ def setup_driver():
     return webdriver.Chrome(options=chrome_options)
 def scrape_laundry_status(url, driver):
     now = datetime.now(timezone('America/Chicago'))
-    formatted_now = now.strftime('%Y-%m-%d %H-%M-%S')
+    # formatted_now = now.strftime('%Y-%m-%d %H-%M-%S')
     driver.get(url)
     page_source = driver.page_source
     soup = BeautifulSoup(page_source, 'html.parser')
@@ -147,6 +147,7 @@ def main():
     try:
         for url in urls:
             scrape_laundry_status(url, driver)
+            driver.refresh()
             sleep(2)
             print("---")  # Separator between locations
     finally:
