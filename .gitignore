@@ -1,0 +1,3 @@
+# ignore all files in teh results folder
+results/*
+firebase.json
