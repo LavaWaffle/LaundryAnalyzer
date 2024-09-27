@@ -8,6 +8,7 @@ import firebase_admin
 from firebase_admin import credentials
 from firebase_admin import firestore
 import json
+from pytz import timezone
 
 def get_firebase_credentials():
     cred_json = os.environ.get('FIREBASE_SERVICE_ACCOUNT_KEY')
@@ -98,7 +99,7 @@ def setup_driver():
     
     return webdriver.Chrome(options=chrome_options)
 def scrape_laundry_status(url, driver):
-    now = datetime.now()
+    now = datetime.now(timezone('America/Chicago'))
     formatted_now = now.strftime('%Y-%m-%d %H-%M-%S')
     driver.get(url)
     page_source = driver.page_source
