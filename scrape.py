@@ -12,6 +12,7 @@ import json
 def get_firebase_credentials():
     cred_json = os.environ.get('FIREBASE_SERVICE_ACCOUNT_KEY')
     if not cred_json:
+        print("ERROR")
         raise ValueError("FIREBASE_SERVICE_ACCOUNT_KEY environment variable is not set")
     # try:
     cred_dict = json.loads(cred_json)
