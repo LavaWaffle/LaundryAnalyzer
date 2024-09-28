@@ -33,6 +33,7 @@ db = firestore.client()
 # db = firestore.client()
 
 def collection_exists(collection_name):
+    return True
     try:
         db.collection(collection_name).get()
         return True
