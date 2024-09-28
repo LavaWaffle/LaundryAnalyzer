@@ -152,6 +152,7 @@ def main():
             driver = setup_driver()
             sleep(2)
             print("---")  # Separator between locations
+            return
     finally:
         driver.quit()
 
