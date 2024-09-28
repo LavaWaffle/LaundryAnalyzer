@@ -130,7 +130,7 @@ def scrape_laundry_status(url, driver):
         
         machine_type = "Washer" if "Washer" in img else "Dryer" if "Dryer" in img else "Unknown"
         print(f"{machine_type}, {key}, {status_text}")
-        results.append({'machine_type': machine_type, 'machine_number': int(key), 'machine_status': status_text})
+        results.append({'machine_type': machine_type, 'machine_number': int(key), 'machine_status': status_text.strip()})
 
     if len(results) != 0:
         formatted_now_me = now.strftime('%Y-%m-%d %H:%M:%S')
